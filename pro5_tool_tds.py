@@ -17,9 +17,6 @@ from onest_captcha import OneStCaptchaClient
 import threading
 import requests
 
-thread_number = 1
-threads = []
-
 options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 options.add_experimental_option("detach", True)
@@ -444,8 +441,4 @@ def Main(TDS_token, password):
         #                     Main()
                             
 if __name__ == '__main__':
-    t0 = threading.Thread(target=Main, args=("TDSQfiEjclZXZzJiOiIXZ2V2ciwiI5cTMlVXc5h2ciojIyV2c1Jye", "5785112"))
-    t1 = threading.Thread(target=Main, args=("TDS0nI4IXZ2V2ciojIyVmdlNnIsICbv9Gd0NXZ0pXatFmaiojIyV2c1Jye", "5785112"))
-    t0.start()
-    time.sleep(2)
-    t1.start()
+    Main("TDSQfiEjclZXZzJiOiIXZ2V2ciwiI5cTMlVXc5h2ciojIyV2c1Jye", "5785112")
