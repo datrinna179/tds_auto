@@ -1,11 +1,21 @@
-import os, uuid, requests, json, datetime, requests, time
+import os, uuid, json, requests, time
 from datetime import datetime
-from time import sleep
+try:
+    import requests
+    from selenium import webdriver
+    from selenium.webdriver.common.by import By
+    from selenium.webdriver.common.keys import Keys
+    from onest_captcha import OneStCaptchaClient
+except: 
+    os.system("pip install selenium")
+    os.system("pip install 1stcaptcha")
+    os.system("pip install requests")
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from onest_captcha import OneStCaptchaClient
 import threading
+import requests
 
 thread_number = 1
 threads = []
