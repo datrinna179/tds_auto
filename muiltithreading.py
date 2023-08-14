@@ -12,7 +12,7 @@ except:
 
 from pynput import keyboard
 tools = [muiltithreading('Thread 1'), muiltithreading('Thread 2'), muiltithreading('Thread 3')]
-listen = keyboard.Listener
+listen = keyboard.Listener #đang fix chỗ này
 
 def execute_python_file(profile, sleepTime, file_path):
     if(profile.IsStop):

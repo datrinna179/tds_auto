@@ -16,7 +16,8 @@ from selenium.webdriver.common.keys import Keys
 from onest_captcha import OneStCaptchaClient
 import threading
 import requests
-class muiltithreading:
+
+class muiltithreading: #thêm class
     Name = ''
     IsStop = False
     def __init__(self, Name,):
