@@ -16,14 +16,12 @@ from selenium.webdriver.common.keys import Keys
 from onest_captcha import OneStCaptchaClient
 import threading
 import requests
-
 class muiltithreading:
     Name = ''
     IsStop = False
     def __init__(self, Name,):
         self.Name = Name
         self.IsStop = False
-        
     options = webdriver.ChromeOptions()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
     options.add_experimental_option("detach", True)

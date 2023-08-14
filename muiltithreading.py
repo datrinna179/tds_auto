@@ -18,7 +18,6 @@ def execute_python_file(profile, sleepTime, file_path):
     if(profile.IsStop):
         print("{} Stop\n" .format(profile.Name))
         return
-    time.sleep(sleepTime)
     if(profile.IsStop):
         print("{} Stop\n" .format(profile.Name))
         return
@@ -35,6 +34,7 @@ def execute_python_file(profile, sleepTime, file_path):
             print(f"{profile.Name} is running")
             print("Output:")
             print(completed_process.stdout)
+            time.sleep(sleepTime)
         else:
             print(f"Error: Failed to execute '{file_path}'.")
             print("Error output:")
