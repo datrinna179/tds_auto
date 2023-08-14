@@ -290,8 +290,7 @@ class muiltithreading: #thêm class
         os.system('cls')
         job = 0
         bug = 0
-        
-        tds = TDS_Cofig(TDS_token)
+        tds = TDS_Cofig(TDS_token) #bug
         info_account = tds.Login_TDS()
         with open("cookie.txt", "r+") as f:
             cookie = f.readline()
@@ -447,4 +446,4 @@ class muiltithreading: #thêm class
             #                     Main()
                                 
     if __name__ == '__main__':
-        Main("TDSQfiEjclZXZzJiOiIXZ2V2ciwiI5cTMlVXc5h2ciojIyV2c1Jye", "5785112")
+        Main("TDSQfiEjclZXZzJiOiIXZ2V2ciwiI5cTMlVXc5h2ciojIyV2c1Jye", "5785112") #bug
