@@ -1,18 +1,19 @@
+#đang dính bug chưa chạy đc
 from pro5_tool_tds import *
 import os
 import threading
 import time
 import subprocess
-import pynput
-
 try:
     from pynput import keyboard
 except:
     os.system("pip install pynput")
 
 from pynput import keyboard
-tools = [muiltithreading('Thread 1'), muiltithreading('Thread 2'), muiltithreading('Thread 3')]
+
+tools = [show_info('Thread 1'), show_info('Thread 2'), show_info('Thread 3')]
 listen = keyboard.Listener #đang fix chỗ này
+file_path = '/workspaces/tds_auto/pro5_tool_tds.py'
 
 def execute_python_file(profile, sleepTime, file_path):
     if(profile.IsStop):
@@ -41,8 +42,6 @@ def execute_python_file(profile, sleepTime, file_path):
             print(completed_process.stderr)
     except FileNotFoundError:
         print(f"Error: The file '{file_path}' does not exist.")
-
-file_path = '/workspaces/tds_auto/pro5_tool_tds.py'
     
 #nhan phim de dung tool
 def on_press(key): # key: phim nhan
