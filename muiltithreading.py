@@ -1,4 +1,3 @@
-#đang dính bug chưa chạy đc
 from pro5_tool_tds import *
 import os
 import threading
@@ -8,23 +7,19 @@ try:
     from pynput import keyboard
 except:
     os.system("pip install pynput")
-
 from pynput import keyboard
+
 tools = []
 i = 1
 nhap_so_luong = int(input("Nhập số luồng: "))
 while i <= nhap_so_luong:
     tools.append(show_info(f"Luồng {i}"))
     i += 1
-
 listen = keyboard.Listener 
-file_path = 'F:\Project_tool_tds\Prj_tds_auto-testing\pro5_tool_tds.py' #đường dẫn file pro5_tool_tds
+file_path = 'F:\Project_tool_tds\Prj_tds_auto-testing\pro5_tool_tds.py' #đường dẫn file pro5_tool_tds(down code về nhớ đổi đường dẫn)
 
 def execute_python_file(profile, sleepTime, file_path):
     #dừng luồng
-    if(profile.IsStop):
-        print("{} Stop\n" .format(profile.Name))
-        return
     if(profile.IsStop):
         print("{} Stop\n" .format(profile.Name))
         return
@@ -46,6 +41,7 @@ def execute_python_file(profile, sleepTime, file_path):
             print(f"Lỗi: Không thực thi được '{file_path}'.")
             print("Lỗi: ")
             print(completed_process.stderr)
+            time.sleep(sleepTime)
     except FileNotFoundError:
         print(f"Lỗi: Tệp '{file_path}' không tồn tại. ")
     
@@ -57,12 +53,12 @@ def on_press(key): # key: phim nhan
         return
     index = vk - 48
     if(index >=0 and index < len(tools) and tools[index].IsStop == False):
-        print("Doing Stop: {}".format(tools[index].Name))
+        print("Dừng luồng: {}".format(tools[index].Name))
         tools[index].IsStop = True
 #đa luồng
 if __name__ == "__main__":
     for item in tools:
-        p = threading.Thread(target=execute_python_file, args=(item, 3, file_path, ))
+        p = threading.Thread(target=execute_python_file, args=(item, 5, file_path, ))
         p.start()
         
     with keyboard.Listener(on_press=on_press) as listener:

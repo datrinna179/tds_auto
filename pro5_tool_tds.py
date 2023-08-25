@@ -17,7 +17,8 @@ from onest_captcha import OneStCaptchaClient
 import threading
 import requests
 
-class show_info: #thêm class
+#class show tên luồng
+class show_info:
     Name = ''
     IsStop = False
     def __init__(self, Name,):
