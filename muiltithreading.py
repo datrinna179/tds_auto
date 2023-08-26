@@ -9,6 +9,7 @@ except:
     os.system("pip install pynput")
 from pynput import keyboard
 
+sleepTime = 3
 tools = []
 i = 1
 nhap_so_luong = int(input("Nhập số luồng: "))
@@ -58,9 +59,9 @@ def on_press(key): # key: phim nhan
 #đa luồng
 if __name__ == "__main__":
     for item in tools:
-        p = threading.Thread(target=execute_python_file, args=(item, 5, file_path, ))
+        p = threading.Thread(target=execute_python_file, args=(item, sleepTime, file_path, ))
         p.start()
-        
+        time.sleep(sleepTime)
     with keyboard.Listener(on_press=on_press) as listener:
         listen = listener
         listener.join() 
